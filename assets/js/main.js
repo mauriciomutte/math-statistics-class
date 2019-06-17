@@ -25,3 +25,9 @@ function rol() {
 function calculateClass() {
   dataStructure.class = Math.floor( Math.log10(inputValue.length) * 3.3 + 1 );
 }
+
+// Calculate interval
+function calculateInterval(rol, classNum) {
+  const rolIndex = rol.length - 1;
+  dataStructure.interval = Math.ceil( ( rol[rolIndex] - rol[0] ) / classNum );
+}
