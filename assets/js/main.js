@@ -25,6 +25,7 @@ function start() {
   calculateInterval(dataStructure.rol, dataStructure.class)
   repeatedValues();
   buildPage()
+  insertVariable();
   
   console.log(dataStructure)
 }
@@ -51,6 +52,28 @@ function repeatedValues() {
   inputValue.forEach(function(x) {
     dataStructure.repeated[x] = (dataStructure.repeated[x] || 0) + 1; 
   });
+}
+
+function insertVariable() {
+  const repeated = Object.entries(dataStructure.repeated);
+  dataStructure.variable = [];
+
+  if (repeated.length <= dataStructure.class) {
+    dataStructure.class = repeated.length;
+
+    repeated.forEach(function(item) {
+      dataStructure.variable.push(item[0])
+    });
+  } else {
+    let numOne = Math.floor(dataStructure.rol[0]);
+    for (let i = 0; i < dataStructure.class; i++) {
+      let numTwo = numOne + dataStructure.interval;
+
+      dataStructure.variable.push( '[' + numOne + ', ' + numTwo + '[' );
+
+      numOne = numTwo      
+    }
+  }
 }
 
 function buildPage() {
