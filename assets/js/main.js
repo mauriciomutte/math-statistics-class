@@ -15,3 +15,8 @@ function getInputValue() {
   inputValue = $input.value.match(/\w+(,\w+)?/g)
   console.log(inputValue)
 }
+
+// Rol
+function rol() {
+  dataStructure.rol = inputValue.sort();
+}
