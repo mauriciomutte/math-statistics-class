@@ -14,6 +14,15 @@ $input.addEventListener('keyup', function(e) {
 function getInputValue() {
   inputValue = $input.value.match(/\w+(,\w+)?/g)
   console.log(inputValue)
+
+  start();
+}
+
+function start() {
+  rol();
+  calculateClass();
+  calculateInterval(dataStructure.rol, dataStructure.class)
+  console.log(dataStructure)
 }
 
 // Rol
