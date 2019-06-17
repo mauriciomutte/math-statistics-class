@@ -23,7 +23,7 @@ function start() {
   rol();
   calculateClass();
   calculateInterval(dataStructure.rol, dataStructure.class)
-
+  repeatedValues();
   buildPage()
   
   console.log(dataStructure)
@@ -43,6 +43,14 @@ function calculateClass() {
 function calculateInterval(rol, classNum) {
   const rolIndex = rol.length - 1;
   dataStructure.interval = Math.ceil( ( rol[rolIndex] - rol[0] ) / classNum );
+}
+
+// Repeated values
+function repeatedValues() {
+  dataStructure.repeated = {};
+  inputValue.forEach(function(x) {
+    dataStructure.repeated[x] = (dataStructure.repeated[x] || 0) + 1; 
+  });
 }
 
 function buildPage() {
