@@ -28,7 +28,7 @@ function start() {
 
 // Rol
 function rol() {
-  dataStructure.rol = inputValue.sort();
+  dataStructure.rol = inputValue.sort( (a, b) => a - b );
 }
 
 // Calculate class
