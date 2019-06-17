@@ -12,7 +12,7 @@ $input.addEventListener('keyup', function(e) {
 });
 
 function getInputValue() {
-  $input.value.match(/\w+(,\w+)?/g).map(function(item) {
+  $input.value.match(/\w+(\.\w+)?/g).map(function(item) {
     inputValue.push( Number(item) );
   });
 
@@ -26,7 +26,7 @@ function start() {
   repeatedValues();
   buildPage()
   insertVariable();
-  
+
   console.log(dataStructure)
 }
 
