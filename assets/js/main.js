@@ -1,7 +1,7 @@
 const $input = document.querySelector('.input');
 const $btn = document.querySelector('.btn');
 const dataStructure = {};
-let inputValue;
+let inputValue = []
 
 $btn.addEventListener('click', getInputValue);
 $input.addEventListener('keyup', function(e) {
@@ -12,8 +12,9 @@ $input.addEventListener('keyup', function(e) {
 });
 
 function getInputValue() {
-  inputValue = $input.value.match(/\w+(,\w+)?/g)
-  console.log(inputValue)
+  $input.value.match(/\w+(,\w+)?/g).map(function(item) {
+    inputValue.push( Number(item) );
+  });
 
   start();
 }
