@@ -23,6 +23,9 @@ function start() {
   rol();
   calculateClass();
   calculateInterval(dataStructure.rol, dataStructure.class)
+
+  buildPage()
+  
   console.log(dataStructure)
 }
 
@@ -40,4 +43,14 @@ function calculateClass() {
 function calculateInterval(rol, classNum) {
   const rolIndex = rol.length - 1;
   dataStructure.interval = Math.ceil( ( rol[rolIndex] - rol[0] ) / classNum );
+}
+
+function buildPage() {
+  const $rol = document.querySelector('.rol');
+  const $class = document.querySelector('.class');
+  const $interval = document.querySelector('.interval');
+  
+  $rol.innerHTML = dataStructure.rol.join('; ')
+  $class.innerHTML = dataStructure.class
+  $interval.innerHTML = dataStructure.interval
 }
