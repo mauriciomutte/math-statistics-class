@@ -20,3 +20,8 @@ function getInputValue() {
 function rol() {
   dataStructure.rol = inputValue.sort();
 }
+
+// Calculate class
+function calculateClass() {
+  dataStructure.class = Math.floor( Math.log10(inputValue.length) * 3.3 + 1 );
+}
