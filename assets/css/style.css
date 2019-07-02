@@ -2,3 +2,79 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-color: #161223;
+  color: #f1f1f1;
+  margin: auto;
+  max-width: 600px;   
+  text-align: center;
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid #f1f1f1;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 5px 15px;
+}
+
+.btn--send {
+  background-color: #0b6623;
+  border: none;
+}
+
+.btn--remove {
+  background-color: #8e1a1a;
+  border: none;
+}
+
+.enter-data {
+  display: block;
+  padding: 2em 0;
+}
+
+.enter-data_input {
+  background-color: transparent;
+  border: 2px solid #f1f1f1;
+  border-radius: 5px;
+  color: #f1f1f1;
+  display: block;
+  font-size: 18px;
+  font-weight: bolder;
+  margin: 1em auto;
+  min-width: 100px;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.enter-data_enter-numbers {
+  color: gray;
+  font-size: 22px;
+  font-weight: bolder;
+  margin: 1em 3em;
+}
+
+.return-data_title {
+  font-size: 32px;
+  margin: 2em 0 0;
+}
+
+.return-data_list {
+  font-size: 18px;
+  font-weight: bolder;
+  list-style: none;
+  margin: 2em 0 5em 3em;
+  text-align: left;
+}
+
+.return-data_list li {
+  margin: 15px 0;
+}
+
+.return-data_list li span {
+  font-weight: normal;
+}

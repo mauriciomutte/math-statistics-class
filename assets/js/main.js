@@ -1,87 +1,78 @@
-const $input = document.querySelector('.input');
-const $btn = document.querySelector('.btn');
-const dataStructure = {};
-let inputValue = []
+const $input = document.querySelector('[data-js="input"]');
+const $send = document.querySelector('[data-js="send"]');
+const $removeSend = document.querySelector('[data-js="remove"]');
+const $calculate = document.querySelector('[data-js="calculate"]');
+const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
 
-$btn.addEventListener('click', getInputValue);
-$input.addEventListener('keyup', function(e) {
+const $rol = document.querySelector('.rol');
+const $class = document.querySelector('.class');
+const $interval = document.querySelector('.interval');
+const $average = document.querySelector('.average');
+const $median = document.querySelector('.median');
+
+let numbers = [];
+let rol;
+
+$input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    getInputValue();
-   }
+    $send.click()
+  }
 });
 
-function getInputValue() {
-  $input.value.match(/\w+(\.\w+)?/g).map(function(item) {
-    inputValue.push( Number(item) );
-  });
+$send.addEventListener('click', function() {
+  numbers.push( Number($input.value) );
+  $viewNumber.innerHTML = numbers.join(', ');
+  console.log(numbers);
+  $input.value = '';
+  $input.focus();
+});
 
-  start();
+$removeSend.addEventListener('click', function() {
+  numbers.pop();
+  $viewNumber.innerHTML = numbers.join(', ');
+});
+
+$calculate.addEventListener('click', function() {
+  calculateRol();
+  $rol.innerHTML = rol.join(', ');
+  $class.innerHTML = calculateClass();
+  $interval.innerHTML = calculateInterval();
+  $average.innerHTML = calculateAverage();
+  $median.innerHTML = calculateMedian();
+});
+
+function calculateRol() {
+  rol = numbers.sort((a,b) => a - b);
 }
 
-function start() {
-  rol();
-  calculateClass();
-  calculateInterval(dataStructure.rol, dataStructure.class)
-  repeatedValues();
-  buildPage()
-  insertVariable();
-
-  console.log(dataStructure)
-}
-
-// Rol
-function rol() {
-  dataStructure.rol = inputValue.sort( (a, b) => a - b );
-}
-
-// Calculate class
 function calculateClass() {
-  dataStructure.class = Math.floor( Math.log10(inputValue.length) * 3.3 + 1 );
+  return Math.round( (Math.log10(numbers.length) * 3.3) + 1 );
 }
 
-// Calculate interval
-function calculateInterval(rol, classNum) {
-  const rolIndex = rol.length - 1;
-  dataStructure.interval = Math.ceil( ( rol[rolIndex] - rol[0] ) / classNum );
+function calculateInterval() {
+  const first = Number(rol[0]); 
+  const last = Number(rol[ (rol.length - 1) ]);
+
+  return Math.ceil( (last - first) / calculateClass() );
 }
 
-// Repeated values
-function repeatedValues() {
-  dataStructure.repeated = {};
-  inputValue.forEach(function(x) {
-    dataStructure.repeated[x] = (dataStructure.repeated[x] || 0) + 1; 
+function calculateAverage() {
+  const sumAllNumbers = numbers.reduce((acc, cur) => {
+    return acc + cur;
   });
+
+  return Math.round( (sumAllNumbers / numbers.length) * 100 ) / 100;
 }
 
-function insertVariable() {
-  const repeated = Object.entries(dataStructure.repeated);
-  dataStructure.variable = [];
+function calculateMedian() {
+  if (rol.length % 2 === 0) {
+    const getNumberOne = (rol.length / 2) - 1;
+    const getNumberTwo = getNumberOne + 1;
 
-  if (repeated.length <= dataStructure.class) {
-    dataStructure.class = repeated.length;
-
-    repeated.forEach(function(item) {
-      dataStructure.variable.push(item[0])
-    });
+    return ( Number(rol[getNumberOne]) + rol[getNumberTwo] ) / 2;
   } else {
-    let numOne = Math.floor(dataStructure.rol[0]);
-    for (let i = 0; i < dataStructure.class; i++) {
-      let numTwo = numOne + dataStructure.interval;
-
-      dataStructure.variable.push( '[' + numOne + ', ' + numTwo + '[' );
-
-      numOne = numTwo      
-    }
+    const getNumber = Math.round( (rol.length - 1) / 2 ); 
+    return rol[getNumber];
   }
-}
-
-function buildPage() {
-  const $rol = document.querySelector('.rol');
-  const $class = document.querySelector('.class');
-  const $interval = document.querySelector('.interval');
-  
-  $rol.innerHTML = dataStructure.rol.join('; ')
-  $class.innerHTML = dataStructure.class
-  $interval.innerHTML = dataStructure.interval
 }
