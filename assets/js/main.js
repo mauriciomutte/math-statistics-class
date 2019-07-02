@@ -3,7 +3,7 @@ const $send = document.querySelector('[data-js="send"]');
 const $removeSend = document.querySelector('[data-js="remove"]');
 const $calculate = document.querySelector('[data-js="calculate"]');
 const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
-let numbers = [1.5, 4.4, 2.8, 1.9, 3.2, 5.5, 1.0, 3.2, 3.2, 2.3, 2.3, 2.7, 4.7, 2.3, 4.4];
+let numbers = [2,4,4,5,6];
 let rol;
 
 $send.addEventListener('click', function() {
@@ -23,6 +23,7 @@ $calculate.addEventListener('click', function() {
   console.log('Classes:', calculateClass());
   console.log('Intervalo:', calculateInterval());
   console.log('|X:', calculateAverage());
+  console.log('Me:', calculateMedian());
 });
 
 function calculateRol() {
@@ -46,4 +47,13 @@ function calculateAverage() {
   });
 
   return Math.round( (sumAllNumbers / numbers.length) * 100 ) / 100;
+}
+
+function calculateMedian() {
+  if (rol.length % 2 === 0) {
+
+  } else {
+    const getNumber = Math.round( (rol.length - 1) / 2 ); 
+    return rol[getNumber];
+  }
 }
