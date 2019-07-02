@@ -3,6 +3,13 @@ const $send = document.querySelector('[data-js="send"]');
 const $removeSend = document.querySelector('[data-js="remove"]');
 const $calculate = document.querySelector('[data-js="calculate"]');
 const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
+
+const $rol = document.querySelector('.rol');
+const $class = document.querySelector('.class');
+const $interval = document.querySelector('.interval');
+const $average = document.querySelector('.average');
+const $median = document.querySelector('.median');
+
 let numbers = [];
 let rol;
 
@@ -19,11 +26,11 @@ $removeSend.addEventListener('click', function() {
 
 $calculate.addEventListener('click', function() {
   calculateRol();
-  console.log('Rol:', rol);
-  console.log('Classes:', calculateClass());
-  console.log('Intervalo:', calculateInterval());
-  console.log('|X:', calculateAverage());
-  console.log('Me:', calculateMedian());
+  $rol.innerHTML = rol;
+  $class.innerHTML = calculateClass();
+  $interval.innerHTML = calculateInterval();
+  $average.innerHTML = calculateAverage();
+  $median.innerHTML = calculateMedian();
 });
 
 function calculateRol() {
