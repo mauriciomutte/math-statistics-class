@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,  initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Math Statistcs Class</title>
   <link rel="stylesheet" href="assets/css/style.css">
@@ -11,12 +11,20 @@
   <section class="enter-data">
     <h2 class="enter-data_title">Adicionar números:</h2>
     <input type="number" step="any" class="enter-data_input" data-js="input">
-    <button class="btn enter-data_btn" data-js="send">Adicionar</button>
-    <button class="btn enter-data_btn" data-js="remove">Remover</button>
+    <button class="btn btn--send enter-data_btn" data-js="send">Adicionar</button>
+    <button class="btn btn--remove enter-data_btn" data-js="remove">Remover</button>
     <p class="enter-data_enter-numbers" data-js="enter-numbers"></p>
   </section>
-  <section class="calculate">
+  <section class="return-data">
     <button class="btn" data-js="calculate">Calcular</button>
+    <h2 class="return-data_title">Rol</h2>
+    <p class="enter-data_enter-numbers" data-js="enter-numbers"></p>
+    <ul class="return-data_list">
+      <li>Classes: <span class="class"></span></li>
+      <li>Intervalo: <span class="interval"></span></li>
+      <li>Média: <span class="average"></span></li>
+      <li>Mediana: <span class="median"></span></li>
+    </ul>
   </section>  
 
   <script src="assets/js/main.js"></script>
