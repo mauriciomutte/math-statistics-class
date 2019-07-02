@@ -13,6 +13,13 @@ const $median = document.querySelector('.median');
 let numbers = [];
 let rol;
 
+$input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    $send.click()
+  }
+});
+
 $send.addEventListener('click', function() {
   numbers.push( Number($input.value) );
   $viewNumber.innerHTML = numbers.join(', ');
