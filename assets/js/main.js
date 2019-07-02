@@ -1,10 +1,10 @@
 const $input = document.querySelector('[data-js="input"]');
 const $send = document.querySelector('[data-js="send"]');
-const $viewNumber = document.querySelector('.numbers');
+const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
 let numbers = [];
 
 $send.addEventListener('click', function() {
   numbers.push( Number($input.value) );
-  viewNumbers()
+  $viewNumber.innerHTML = numbers.join(', ');
   console.log(numbers);
 });
