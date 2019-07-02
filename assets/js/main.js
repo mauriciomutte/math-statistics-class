@@ -4,6 +4,7 @@ const $removeSend = document.querySelector('[data-js="remove"]');
 const $calculate = document.querySelector('[data-js="calculate"]');
 const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
 let numbers = [];
+let rol;
 
 $send.addEventListener('click', function() {
   numbers.push( Number($input.value) );
@@ -15,3 +16,7 @@ $removeSend.addEventListener('click', function() {
   numbers.pop();
   $viewNumber.innerHTML = numbers.join(', ');
 });
+
+function calculateRol() {
+  rol = numbers.sort((a,b) => a - b);
+}
