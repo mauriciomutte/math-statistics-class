@@ -17,6 +17,8 @@ $send.addEventListener('click', function() {
   numbers.push( Number($input.value) );
   $viewNumber.innerHTML = numbers.join(', ');
   console.log(numbers);
+  $input.value = '';
+  $input.focus();
 });
 
 $removeSend.addEventListener('click', function() {
