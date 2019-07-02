@@ -17,6 +17,13 @@ $removeSend.addEventListener('click', function() {
   $viewNumber.innerHTML = numbers.join(', ');
 });
 
+$calculate.addEventListener('click', function() {
+  calculateRol();
+  console.log('Rol:', rol);
+  console.log('Classes:', calculateClass());
+  console.log('Intervalo:', calculateInterval());
+});
+
 function calculateRol() {
   rol = numbers.sort((a,b) => a - b);
 }
