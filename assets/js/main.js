@@ -51,7 +51,10 @@ function calculateAverage() {
 
 function calculateMedian() {
   if (rol.length % 2 === 0) {
+    const getNumberOne = (rol.length / 2) - 1;
+    const getNumberTwo = getNumberOne + 1;
 
+    return ( Number(rol[getNumberOne]) + rol[getNumberTwo] ) / 2;
   } else {
     const getNumber = Math.round( (rol.length - 1) / 2 ); 
     return rol[getNumber];
