@@ -24,3 +24,11 @@ function calculateRol() {
 function calculateClass() {
   return Math.round( (Math.log10(numbers.length) * 3.3) + 1 );
 }
+
+function calculateInterval() {
+  const first = Number(rol[0]); 
+  const last = Number(rol[ (rol.length - 1) ]);
+
+  return Math.ceil( (last - first) / calculateClass() );
+
+}
