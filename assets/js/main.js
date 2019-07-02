@@ -28,7 +28,7 @@ $removeSend.addEventListener('click', function() {
 
 $calculate.addEventListener('click', function() {
   calculateRol();
-  $rol.innerHTML = rol;
+  $rol.innerHTML = rol.join(', ');
   $class.innerHTML = calculateClass();
   $interval.innerHTML = calculateInterval();
   $average.innerHTML = calculateAverage();
