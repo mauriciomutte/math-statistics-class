@@ -20,3 +20,7 @@ $removeSend.addEventListener('click', function() {
 function calculateRol() {
   rol = numbers.sort((a,b) => a - b);
 }
+
+function calculateClass() {
+  return Math.round( (Math.log10(numbers.length) * 3.3) + 1 );
+}
