@@ -1,6 +1,7 @@
 const $input = document.querySelector('[data-js="input"]');
 const $send = document.querySelector('[data-js="send"]');
 const $removeSend = document.querySelector('[data-js="remove"]');
+const $calculate = document.querySelector('[data-js="calculate"]');
 const $viewNumber = document.querySelector('[data-js="enter-numbers"]');
 let numbers = [];
 
